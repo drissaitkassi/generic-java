@@ -7,7 +7,7 @@ public class League <T extends  Sport>{
         this.nom=nom;
     }
 
-    public boolean addteam(Team oneTeam){
+    public boolean addteam(Team<T> oneTeam){
         if (teams.contains(oneTeam)){
             System.out.println(oneTeam.getNom() +"deja existant");
             return false;

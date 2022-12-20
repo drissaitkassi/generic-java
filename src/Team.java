@@ -1,4 +1,4 @@
-public class Team<T extends Sport> {
+public class Team<T extends Sport> implements Comparable<Team<T>>{
     private String nom;
     int played=0;
     int won=0;
@@ -27,13 +27,17 @@ public class Team<T extends Sport> {
             this.tied++;
         }
         played++;
-        if(oppenant!=null){
-
+      /*  if(oppenant!=null){
             oppenant.matchResult(null,theirScore,ourScore);
 
-        }
+        }*/
     }
     public int ranking(){
         return (won*2)+tied;
+    }
+
+    @Override
+    public int compareTo(Team<T> o) {
+        return Integer.compare(this.ranking(),o.ranking());
     }
 }
